@@ -1,11 +1,11 @@
-const int buttonPin = // Button PIn ;    
-const int buzzer = // Speaker Pin ;
+const int buttonPin = // button pin ;    
+const int buzzer = // speaker pin ;
 
 int buttonState = LOW;             
 int lastButtonState = LOW;  
 int doesitwork = LOW;  
 
-int pause_value = 100; // depending on your skill and how fast your fingers are you can change this value to make typing a message faster or slower 
+int pause_value = 100; // you can change this value to make typing a message faster or slower 
 long signal_length = 0;
 long pause = 0;
 
@@ -38,11 +38,11 @@ void loop() {
 
   
   
-  if (buttonState && lastButtonState)  // basic state machine depending on the state of the signal from the button     
+  if (buttonState && lastButtonState)       
   {
     ++signal_length;       
-    if (signal_length<2*pause_value)   //this help to notice that there is a change in the signal length        
-    {                                  // best use for the measuring of signal_length would be use of the millis() but this was used  for simplicity      
+    if (signal_length<2*pause_value)          
+    {                                      
     tone(buzzer, 460) ;
     }
     else
@@ -50,7 +50,7 @@ void loop() {
       tone(buzzer, 460) ;
       }
   }
-  else if(!buttonState && lastButtonState)   //this part of the code happens when the button is released and it send either * or - into the buffer      
+  else if(!buttonState && lastButtonState)   
   {
      
      if (signal_length>50 && signal_length<2*pause_value )
@@ -65,7 +65,7 @@ void loop() {
     digitalWrite(13, LOW); 
     noTone(buzzer); 
   }
-  else if(buttonState && !lastButtonState)  // this part happens when the button is pressed and its use to reset several values        
+  else if(buttonState && !lastButtonState)  
   {
     pause=0;
     digitalWrite(13, HIGH);  
