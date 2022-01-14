@@ -25,7 +25,7 @@ void setup()
   pinMode(buttonPin, INPUT_PULLUP);
   pinMode(buzzer, OUTPUT);
   
-  Serial.println("Morse Code: ");
+  Serial.println("Welcome to Arduino morse code machine");
 
   while(!digitalRead(buttonPin))
     ;
