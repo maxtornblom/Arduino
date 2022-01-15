@@ -1,5 +1,5 @@
-int trigPin = 2;   
-int echoPin = 4;    
+int trigPin = //Trig pin;   
+int echoPin = //Echo pin;    
 
 int duration, distance_cm;
 
